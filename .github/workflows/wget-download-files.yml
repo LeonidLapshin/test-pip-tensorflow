@@ -33,3 +33,4 @@ jobs:
 
     - name: multithread download packages
       run: chmod +x ./multithread.sh && ./multithread.sh
+      shell: bash
