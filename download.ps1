@@ -1,3 +1,4 @@
+#! /usr/bin/pwsh
 $links = @()
 # $links += "https://files.pythonhosted.org/packages/16/89/f2d29c2eafc2eeafb17d5634340e06366af904d332341200a49d954bce85/tensorflow-2.3.0-cp37-cp37m-manylinux2010_x86_64.whl#sha256=92430b6e91f00f38a602c4f547bbbaca598a3a90376f90d5b2acd24bc18fa1d7"
 # $links += "https://files.pythonhosted.org/packages/8c/5d/faf0d8ac260c7f1eda7d063001c137da5223be1c137658384d2d45dcd0d5/torch-1.6.0-cp38-cp38-manylinux1_x86_64.whl#sha256=5357873e243bcfa804c32dc341f564e9a4c12addfc9baae4ee857fcc09a0a216"
@@ -24,7 +25,7 @@ Function Get-RandomAlphanumericString {
 
 $links += "https://files.pythonhosted.org/packages/ba/8e/214cd2666d830099561ce75c70d6ac36cdd1018ef9cda45a4b5c310a6f32/pycryptodome-3.9.8-cp37-cp37m-manylinux1_x86_64.whl"
 $i = 0
-while ($i -lt 1000) {
+while ($i -lt 200) {
     foreach ($link in $links) {
         Write-Host "####################################"
         Write-Host "Download from $link..."
