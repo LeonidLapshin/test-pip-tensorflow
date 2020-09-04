@@ -7,25 +7,42 @@ $links = @()
 # $links += "https://files.pythonhosted.org/packages/06/45/7578e531889bdd03353ba2a0a0537cf894fbfb8d4cb3b72943b1da9b2533/tensorflow-2.3.0-cp36-cp36m-macosx_10_11_x86_64.whl#sha256=b1699903cf3a9f41c379d79ada2279a206a071b7e05671646d7b5e7fc37e2eae"
 # $links += "https://files.pythonhosted.org/packages/e5/96/0c370ed7fc96e281aa4e93356cba8663d4295c8aad685d67ed1991aeaaff/tensorflow-2.3.0-cp37-cp37m-macosx_10_11_x86_64.whl#sha256=0cfb0fbe875408cdbfc7677f12aa0b23656f3e6d8c5f568b3100450ec29262a7"
 
+Function Get-RandomAlphanumericString {
+	
+	[CmdletBinding()]
+	Param (
+        [int] $length = 24
+	)
+
+	Begin{
+	}
+
+	Process{
+        Write-Output ( -join ((0x30..0x39) + ( 0x41..0x5A) + ( 0x61..0x7A) | Get-Random -Count $length  | % {[char]$_}) )
+	}	
+}
+
 $links += "https://files.pythonhosted.org/packages/ba/8e/214cd2666d830099561ce75c70d6ac36cdd1018ef9cda45a4b5c310a6f32/pycryptodome-3.9.8-cp37-cp37m-manylinux1_x86_64.whl"
 $i = 0
-while ($i -lt 1000) {
+while ($i -lt 20) {
     foreach ($link in $links) {
         Write-Host "####################################"
         Write-Host "Download from $link..."
-        wget -O test.whl --tries=1 --quite $link
-        $sha = ((& sha256sum test.whl) -Split (" "))[0]
+        $filename = Get-RandomAlphanumericString
+        wget -O $filename --tries=1 --quiet $link
+        ls
+        $sha = ((& sha256sum ./$filename) -Split (" "))[0]
         $shafromsite = "ef39c98d9b8c0736d91937d193653e47c3b19ddf4fc3bccdc5e09aaa4b0c5d21"
         if ($shafromsite -match $sha) {
             Write-Output "sha256 is ok"
-            if (unzip -t ./test.whl | grep 'No errors') {
+            if (unzip -t ./$filename | grep 'No errors') {
                 Write-Output "unzip approves too"
             }
             else {
                 Write-Output "unzip said that wsl contains errors"
                 exit 1
             }
-            Remove-Item test.whl
+            Remove-Item $filename
             continue
         } else {
             Write-Host "Error! got sha $sha, but it is not sha from link $($link.Split('sha256=')[1])"
