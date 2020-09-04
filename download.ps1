@@ -7,7 +7,7 @@ $links = @()
 # $links += "https://files.pythonhosted.org/packages/06/45/7578e531889bdd03353ba2a0a0537cf894fbfb8d4cb3b72943b1da9b2533/tensorflow-2.3.0-cp36-cp36m-macosx_10_11_x86_64.whl#sha256=b1699903cf3a9f41c379d79ada2279a206a071b7e05671646d7b5e7fc37e2eae"
 # $links += "https://files.pythonhosted.org/packages/e5/96/0c370ed7fc96e281aa4e93356cba8663d4295c8aad685d67ed1991aeaaff/tensorflow-2.3.0-cp37-cp37m-macosx_10_11_x86_64.whl#sha256=0cfb0fbe875408cdbfc7677f12aa0b23656f3e6d8c5f568b3100450ec29262a7"
 
-$links += "https://files.pythonhosted.org/packages/ba/8e/214cd2666d830099561ce75c70d6ac36cdd1018ef9cda45a4b5c310a6f32/pycryptodome-3.9.8-cp37-cp37m-manylinux1_x86_64.whl"
+$links += "https://files.pythonhosted.org/packages/ba/8e/214cd2666d830099561ce75c70d6ac36cdd1018ef9cda45a4b5c310a6f32/pycryptodome-3.9.8-cp37-cp37m-manylinux1_x86_64.whl#sha256=214cd2666d830099561ce75c70d6ac36cdd1018ef9cda45a4b5c310a6f32"
 $i = 0
 while ($i -lt 2) {
     foreach ($link in $links) {
