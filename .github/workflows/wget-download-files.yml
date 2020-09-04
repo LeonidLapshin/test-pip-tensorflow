@@ -2,11 +2,6 @@ name: wget download packages
 
 on:
   workflow_dispatch:
-    inputs:
-      test:
-        description: 'test'     
-        required: true
-        default: '1'
   push:
     branches: [ master ]
 #  schedule:
