@@ -13,7 +13,7 @@ while ($i -lt 1000) {
     foreach ($link in $links) {
         Write-Host "####################################"
         Write-Host "Download from $link..."
-        wget -O test.whl --tries=1 --verbose $link
+        wget -O test.whl --tries=1 --quite $link
         $sha = ((& sha256sum test.whl) -Split (" "))[0]
         $shafromsite = "ef39c98d9b8c0736d91937d193653e47c3b19ddf4fc3bccdc5e09aaa4b0c5d21"
         if ($shafromsite -match $sha) {
