@@ -9,7 +9,7 @@ $links = @()
 
 $links += "https://files.pythonhosted.org/packages/ba/8e/214cd2666d830099561ce75c70d6ac36cdd1018ef9cda45a4b5c310a6f32/pycryptodome-3.9.8-cp37-cp37m-manylinux1_x86_64.whl"
 $i = 0
-while ($i -lt 2) {
+while ($i -lt 100) {
     foreach ($link in $links) {
         Write-Host "####################################"
         Write-Host "Download from $link..."
@@ -18,6 +18,13 @@ while ($i -lt 2) {
         $shafromsite = "ef39c98d9b8c0736d91937d193653e47c3b19ddf4fc3bccdc5e09aaa4b0c5d21"
         if ($shafromsite -match $sha) {
             Write-Output "sha256 is ok"
+            if (unzip -t ./test.whl | grep 'No errors') {
+                Write-Output "unzip approves too"
+            }
+            else {
+                Write-Output "unzip said that wsl contains errors"
+                exit 1
+            }
             Remove-Item test.whl
             continue
         } else {
