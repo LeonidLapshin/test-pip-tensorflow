@@ -38,4 +38,4 @@ echo "multithread execution"
 ./download.ps1 &
 ./download.ps1 &
 ./download.ps1 &
-./download.ps1 &
+./download.ps1
