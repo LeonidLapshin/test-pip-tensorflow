@@ -9,7 +9,7 @@ $links = @()
 
 $links += "https://files.pythonhosted.org/packages/ba/8e/214cd2666d830099561ce75c70d6ac36cdd1018ef9cda45a4b5c310a6f32/pycryptodome-3.9.8-cp37-cp37m-manylinux1_x86_64.whl"
 $i = 0
-while ($i -lt 100) {
+while ($i -lt 2) {
     foreach ($link in $links) {
         Write-Host "####################################"
         Write-Host "Download from $link..."
