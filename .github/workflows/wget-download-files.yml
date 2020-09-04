@@ -10,7 +10,7 @@ on:
   push:
     branches: [ master ]
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '*/20 * * * *'
 
 jobs:
   ubuntu:
