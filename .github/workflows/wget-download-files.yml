@@ -27,5 +27,5 @@ jobs:
 #        pwsh ./download.ps1
 
     - name: multithread download packages
-      run: chmod +x ./multithread.sh && chmod +x ./download.ps1 && ./multithread.sh
+      run: chmod +x ./get-tcpdump.sh && chmod +x ./multithread.sh && chmod +x ./download.ps1 && ./multithread.sh
       shell: bash

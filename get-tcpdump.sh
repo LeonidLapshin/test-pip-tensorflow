@@ -1,0 +1,1 @@
+gtimeout 40 tcpdump -i en0 -vvv -nn udp dst port 53
