@@ -36,7 +36,7 @@ jobs:
       shell: bash
 
     - name: print sysctl
-      run: sudo sysctl -a
+      run: cat /proc/sys/net/ipv4/tcp_keepalive_time 
       shell: bash
 
     - name: multithread download packages
