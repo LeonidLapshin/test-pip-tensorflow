@@ -27,18 +27,18 @@ jobs:
 #      run: |
 #        pwsh ./download.ps1
 
-    - name: get offload settings
-      run: sudo ethtool -k eth0 
-      shell: bash
+    # - name: get offload settings
+    #   run: sudo ethtool -k eth0 
+    #   shell: bash
 
-    - name: set offload settings
-      run: sudo ethtool -K eth0 tx off rx off
-      shell: bash
+    # - name: set offload settings
+    #   run: sudo ethtool -K eth0 tx off rx off
+    #   shell: bash
 
     - name: print sysctl
-      run: cat /proc/sys/net/ipv4/tcp_keepalive_time 
+      run: cat /proc/sys/net/ipv4/tcp_keepalive_time && cat /proc/sys/net/ipv4/tcp_keepalive_intvl &&cat /proc/sys/net/ipv4/tcp_keepalive_probes 
       shell: bash
 
-    - name: multithread download packages
-      run: chmod +x ./get-tcpdump.sh && chmod +x ./multithread.sh && chmod +x ./download.ps1 && ./multithread.sh
-      shell: bash
+#    - name: multithread download packages
+#      run: chmod +x ./get-tcpdump.sh && chmod +x ./multithread.sh && chmod +x ./download.ps1 && ./multithread.sh
+#      shell: bash
