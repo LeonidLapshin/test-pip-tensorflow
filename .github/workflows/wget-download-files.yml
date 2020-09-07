@@ -28,15 +28,15 @@ jobs:
 #        pwsh ./download.ps1
 
     - name: get offload settings
-      run: sudo ethtool -k eth0
+      run: sudo ethtool -k eth0 
       shell: bash
 
     - name: set offload settings
       run: sudo ethtool -K eth0 tx off rx off
       shell: bash
 
-    - name: check offload settings
-      run: sudo ethtool -k eth0
+    - name: print sysctl
+      run: sudo sysctl -a
       shell: bash
 
     - name: multithread download packages
