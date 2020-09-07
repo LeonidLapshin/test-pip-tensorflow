@@ -30,7 +30,7 @@ while ($i -lt 200) {
         Write-Host "####################################"
         Write-Host "Download from $link..."
         $filename = Get-RandomAlphanumericString
-        wget -O $filename --tries=1 --quiet $link
+        wget -O $filename --tries=1 --verbose $link
         ls
         $sha = ((& sha256sum ./$filename) -Split (" "))[0]
         $shafromsite = "ef39c98d9b8c0736d91937d193653e47c3b19ddf4fc3bccdc5e09aaa4b0c5d21"
@@ -41,12 +41,14 @@ while ($i -lt 200) {
             }
             else {
                 Write-Output "unzip said that wsl contains errors"
+                Start-Sleep 20
                 exit 1
             }
             Remove-Item $filename
             continue
         } else {
             Write-Host "Error! got sha $sha, but it is not sha from link $($link.Split('sha256=')[1])"
+            Start-Sleep 20
             exit 1
         }   
     }
