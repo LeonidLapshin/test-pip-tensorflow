@@ -28,5 +28,9 @@ jobs:
 #        pwsh ./download.ps1
 
     - name: multithread download packages
+      run: sudo apt-get install tcpdump -y
+      shell: bash
+
+    - name: multithread download packages
       run: chmod +x ./get-tcpdump.sh && chmod +x ./multithread.sh && chmod +x ./download.ps1 && ./multithread.sh
       shell: bash

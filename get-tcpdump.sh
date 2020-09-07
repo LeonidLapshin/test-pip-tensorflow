@@ -1,1 +1,1 @@
-gtimeout 40 tcpdump -i en0 -vvv -nn udp dst port 53
+timeout 40 tcpdump -i en0 -vvv -nn tcp dst port 443
